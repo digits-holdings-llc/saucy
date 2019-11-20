@@ -1,0 +1,88 @@
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    title= title
+  body
+    .container
+      .row
+        .col-md-2
+          img(src="sasi.jpg" height=100)
+        .col-md-4
+          h1 Saucy Bot
+      hr
+      .row
+        .col-md-2
+          a(href="/config")
+            | Configuration
+        .col-md-2
+          a(href="/log")
+            | Logs
+        .col-md-2
+          a(href="https://github.com/howethomas/saucy")
+            | Repo
+      hr
+      .row
+        .col-md-8
+          h2 Summary
+          p
+            | This automation simulates an agent for bulk testing VHT messaging.
+            | It uses the observer interface to respond to inbound messages,
+            | optionally tag the session, transfer it or end it.
+          h2 Setup
+          ol
+            li Install this automation on a web server, or use an existing installation (ex: https://saucy.tendigittext.com)
+            li Add this automation URL as an observer in the 
+              a(href="https://qa.digits.holdings/settings/team/#Automations")
+                | team settings
+              section in the VHT Messaging Portal
+            li 
+              a(href="/config")
+                | Configure the automation
+            li 
+              | Send messages into the a network handle attached to the team with this automation
+              | enabled. Look for the appropriate responses in the end user, the VHT messaging 
+              | portal or in the &nbsp
+              a(href="/log")
+                | Logs
+            li 
+              | Any ingress message containing the word "transfer" will transfer the session to the handle
+              | or email address specified in the "transfer" configuration setting
+            li Any ingress message containing the word "quit" will end the session
+
+          h2 Configuration
+          ul
+            li
+              strong Response Msg: 
+              | The response message sent back for each ingress message, 
+              | currently configured as "#{config.response_msg}"
+            li
+              strong Fake Language: 
+              | Generates a random Ipsum Lorem response to each ingress message, replacing the response message, 
+              | currently configured as "#{config.fake_language}"
+            li
+              strong Extra Sauce: 
+              | Specifies the number of additional saucy outbound messages to add for every inbound message,
+              | currently configured as "#{config.extra_sauce}"
+            li
+              strong Whisper: 
+              | When set to the string TRUE, whispers Ipsum Lorem for every inbound message,
+              | currently configured as "#{config.whisper}"
+            li
+              strong Transfer: 
+              | Specifies the team, agent (handle or email) to transfer the current session when an
+              | inbound message contains the word transfer,
+              | currently configured as "#{config.transfer}"
+            li
+              strong Tags: 
+              | When set, it adds this tag to the current session (in the category:tag format),
+              | currently configured as "#{config.tags}"
+
+            
+
+    // Optional JavaScript
+    // jQuery first, then Popper.js, then Bootstrap JS
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')

@@ -1,0 +1,24 @@
+{
+  "name": "saucy",
+  "version": "1.0.0",
+  "description": "An automation that simulates an agent, for testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/howethomas/saucy.git"
+  },
+  "author": "Thomas Howe",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/howethomas/saucy/issues"
+  },
+  "homepage": "https://github.com/howethomas/saucy#readme",
+  "dependencies": {
+    "faker": "^4.1.0",
+    "greenbot-sdk": "^1.0.4",
+    "pug": "^2.0.4"
+  }
+}

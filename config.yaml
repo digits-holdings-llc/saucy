@@ -1,0 +1,12 @@
+response_msg: Hello! 
+fake_language: "FALSE"
+extra_sauce: "2"
+whisper: "FALSE"
+transfer: ""
+tags: test:tag
+host: graphql.qa.digits.holdings
+networkHandle: "+17754061131"
+trace: "FALSE"
+authorization: rfW4eQKAiMxqvyJdo
+url: https://graphql.qa.digits.holdings/graphql
+
