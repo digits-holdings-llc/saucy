@@ -94,14 +94,7 @@ app.post('/', async function(request, response){
 
 
 app.get('/', async function(request, response) {
-  MongoClient.connect(mongoURL, function (err, client) {
-    if (err) throw err
-    var db = client.db(DB_NAME)
-    db.collection('staff').find().toArray((err, result) => {
-      if (err) throw err
-      response.render('index', { title: 'Saucy', staff: result })
-    })
-  })
+  response.render('index', { config: request.config })
 })
 
 http.listen(port, () => botSDK.log(`Automation running on ${port}!`))
