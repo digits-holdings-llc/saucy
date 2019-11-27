@@ -17,7 +17,7 @@ html
           a(href="/config")
             | Configuration
         .col-md-2
-          a(href="/log")
+          a(href=config.log_url)
             | Logs
         .col-md-2
           a(href="https://github.com/howethomas/saucy")
@@ -44,7 +44,7 @@ html
               | Send messages into the a network handle attached to the team with this automation
               | enabled. Look for the appropriate responses in the end user, the VHT messaging 
               | portal or in the &nbsp
-              a(href="/log")
+              a(href=config.log_url)
                 | Logs
             li 
               | Any ingress message containing the word "transfer" will transfer the session to the handle
