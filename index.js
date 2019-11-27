@@ -46,7 +46,16 @@ app.post('/', async function(request, response){
     return;
   } 
   if (request.body.msg.direction == "egress") {
-    response.send({})
+    if (inboundMsg.msg.txt.toUpperCase().includes("QUIT")) {
+      botSDK.log("Quitting")
+      response.send({
+        commands: {
+          "end_session": true
+        }
+      })
+    } else {
+      response.send({})
+    }
     return;
   } 
 
