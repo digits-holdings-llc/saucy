@@ -1,6 +1,6 @@
 {
   "name": "saucy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An automation that simulates an agent, for testing",
   "main": "index.js",
   "scripts": {
