@@ -22,7 +22,7 @@ app.set('views', './views')
 app.use(express.static('public'))
 botSDK.init(app, http)
 
- 
+
 
 const sauce = [
   "What blind man dressed you?",
@@ -44,7 +44,7 @@ app.post('/', async function(request, response){
   if (!inboundMsg.msg) {
     response.send({})
     return;
-  } 
+  }
   if (request.body.msg.direction == "egress") {
     if (inboundMsg.msg.txt.toUpperCase().includes("QUIT")) {
       botSDK.log("Quitting")
@@ -57,22 +57,27 @@ app.post('/', async function(request, response){
       response.send({})
     }
     return;
-  } 
+  }
 
+  var jsonResponse = { }
+  var trigger = request.config.trigger.toUpperCase()
   botSDK.log("New message : ", inboundMsg.msg.src, ":", inboundMsg.msg.txt)
-  var respText = request.config.response_msg || "No message found"
-  if (request.config.fake_language.toUpperCase().trim() == "TRUE") {
-    respText = faker.lorem.sentences(4)
+  if (trigger && inboundMsg.msg.txt.toUpperCase().includes(trigger)) {
+    var respText = request.config.response_msg || "No respnse_msg found in the configuration"
+    if (request.config.fake_language.toUpperCase().trim() == "TRUE") {
+      respText = faker.lorem.sentences(4)
+    }
+    jsonResponse = {
+      messages: [
+        { txt: respText}
+      ]
+    }
+    const extraMsgCount = parseInt(request.config.extra_sauce)
+    for (count=0; count < extraMsgCount; count++) {
+      jsonResponse.messages.push({txt: sauce[Math.floor(Math.random()*sauce.length)]})
+    }
   }
-  var jsonResponse = {
-    messages: [ 
-      { txt: respText}
-    ]
-  }
-  const extraMsgCount = parseInt(request.config.extra_sauce)
-  for (count=0; count < extraMsgCount; count++) {
-    jsonResponse.messages.push({txt: sauce[Math.floor(Math.random()*sauce.length)]})
-  }
+
   if (request.config.tags != "") {
     jsonResponse.agentTags = [ request.config.tags ]
   }
@@ -94,7 +99,7 @@ app.post('/', async function(request, response){
     } else {
       jsonResponse.commands = {
         "transfer": request.config.transfer
-      }  
+      }
     }
   }
   response.send(jsonResponse)
