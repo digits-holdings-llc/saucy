@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/howethomas/saucy.git"
+    "url": "git+https://github.com/digits-holdings-llc/saucy.git"
   },
   "author": "Thomas Howe",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/howethomas/saucy/issues"
+    "url": "https://github.com/digits-holdings-llc/saucy/issues"
   },
-  "homepage": "https://github.com/howethomas/saucy#readme",
+  "homepage": "https://github.com/digits-holdings-llc/saucy#readme",
   "dependencies": {
     "express": "^4.17.1",
     "faker": "^4.1.0",
