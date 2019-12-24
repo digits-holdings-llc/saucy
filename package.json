@@ -19,7 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "greenbot-sdk": "^1.0.13",
+    "greenbot-sdk": "^1.0.14",
     "pug": "^2.0.4"
   }
 }
