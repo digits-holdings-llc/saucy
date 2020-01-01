@@ -96,7 +96,8 @@ app.post('/', async function(request, response) {
 });
 
 app.get('/', async function(request, response) {
-  response.render('index', { config: request.config });
+  const version = process.env.COMMIT_HASH ? process.env.COMMIT_HASH : "";
+  response.render('index', { config: request.config,version });
 });
 
 http.listen(port, () => log(`Automation running on ${port}!`));
