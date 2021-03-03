@@ -19,7 +19,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "querystring": "^0.2.0",
     "vht-automations-sdk": "^1.0.18"
   }
